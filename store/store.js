@@ -1,24 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import postsReducer from "./posts";
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query";
-import { fetchPostsEndpoint } from "./thunks/apiItems/fetchPosts";
-
-const defaultApi = createApi({
-    reducerPath: "defaultApi",
-    baseQuery: fetchBaseQuery({ baseUrl: process.env.EXPO_PUBLIC_API_URL}),
-    endpoints: builder => {
-        fetchPostsEndpoint: fetchPostsEndpoint(builder)
-    }
-})
+import postsReducer from "./slices/posts";
+import {api} from "./api";
 
 const store = configureStore({
     reducer: {
-            postsReducer,
-            [defaultApi.reducerPath]: defaultApi.reducer
+            [api.reducerPath]: api.reducer,
+            postsReducer
     },
-    middleware: (getDefaultMiddleware) => {
-        getDefaultMiddleware().concat(defaultApi.middleware)
-    }
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware)
 })
 
 export default store

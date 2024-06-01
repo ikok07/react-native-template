@@ -1,15 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import {Provider} from "react-redux"
+import { StyleSheet } from 'react-native';
 import store from './store/store';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
-import TabNavigation from './components/ui/TabNavigation';
+import TabNavigation from './components/Navigation/TabNavigation';
+import {Provider} from "react-redux";
 
 
 export default function App() {
-  return <Provider store={store}>
-      <TabNavigation />
+  return <Provider store={store} >
+    <TabNavigation />
   </Provider>
 }
 
