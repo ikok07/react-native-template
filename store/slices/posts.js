@@ -5,8 +5,7 @@ const postsReducer = createSlice({
     name: "posts",
     initialState: {
         posts: [],
-        selectedItems: [],
-        isLoading: false
+        selectedItems: []
     },
     reducers: {
         togglePost: (state, action) => {

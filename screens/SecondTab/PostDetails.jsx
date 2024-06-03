@@ -25,6 +25,7 @@ export default function PostDetails ({route}) {
         <PrimaryButton onPress={savePostHandler} isLoading={isLoading}>Save post</PrimaryButton>
         <Text>Save status: {status}</Text>
         <Text>Response data: {JSON.stringify(data)}</Text>
+        {error && <Text>Error: {JSON.stringify(error)}</Text>}
     </View>
 }
 

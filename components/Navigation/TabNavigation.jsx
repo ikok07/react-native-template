@@ -5,6 +5,11 @@ import {Ionicons} from "@expo/vector-icons"
 import ListScreen from '../../screens/SecondTab/ListScreen'
 import {NavigationContainer} from "@react-navigation/native";
 import {ListStackNavigation} from "./ListStackNavigation";
+import PrimaryButton from "../ui/PrimaryButton";
+import {Button} from "react-native";
+import IconButton from "../ui/IconButton";
+import LoginPage from "../../screens/AccountTab/LoginPage";
+import AccountStackNavigation from "./AccountStackNavigation";
 
 const TabStack = createBottomTabNavigator()
 
@@ -30,6 +35,15 @@ function TabNavigation() {
                 options={{
                     title: "List",
                     tabBarIcon: ({color}) => <Ionicons name="list" size={24} color={color} />,
+                    headerShown: false
+                }}
+            />
+            <TabStack.Screen
+                name='AccountTab'
+                component={AccountStackNavigation}
+                options={{
+                    title: "Account",
+                    tabBarIcon: ({color}) => <IconButton icon="person" color={color} /> ,
                     headerShown: false
                 }}
             />
